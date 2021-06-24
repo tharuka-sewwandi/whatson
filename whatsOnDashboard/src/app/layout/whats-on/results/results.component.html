@@ -1,1 +1,92 @@
-<p>results works!</p>
+<div class="row">
+    <div class=" col-md-1 px-md-1"></div>
+    <div class=" col-md-5 px-md-1">
+        <h1 class="headng">Author ranking</h1>
+        <table class="table table-bordered table-striped table-sm" >
+            <thead>
+                <tr>
+                    <th class="tblhdr">Author Name</th>
+                    <th class="tblhdr">Ranks</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor= "let i of authorResult | slice: (authorpage-1) * authorpageSize : authorpage * authorpageSize">
+                    <td class="tblbdy">{{i[0]}}</td>
+                    <td class="tblbdy">{{i[1]}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="card-footer" class="pagn">
+                <ngb-pagination [(page)]="authorpage" [pageSize]="authorpageSize" [collectionSize]="authorCount"></ngb-pagination>
+              </div>
+        </div>
+    </div>
+    <div class=" col-md-1 px-md-1"></div>
+    <div class=" col-md-5 px-md-1">
+        <h1 class="headng">Source ranking</h1>
+        <table class="table table-bordered table-striped table-sm" >
+            <thead>
+                <tr>
+                    <th class="tblhdr">Source Name</th>
+                    <th class="tblhdr">Ranks</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor= "let i of sourceResult | slice: (sourcepage-1) * sourcepageSize : sourcepage * sourcepageSize">
+                    <td class="tblbdy">{{i[0]}}</td>
+                    <td class="tblbdy">{{i[1]}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="card-footer" class="pagn">
+                <ngb-pagination class="pagn" [(page)]="sourcepage" [pageSize]="sourcepageSize" [collectionSize]="authorCount"></ngb-pagination>
+              </div>
+        </div>
+    </div>
+</div>
+<br/><br/>
+<hr style="background-color: goldenrod;">
+<div class="row">
+    <div class=" col-md-1 px-md-1"></div>
+    <div class=" col-md-10 px-md-1">
+        <table>
+            <tbody>
+                <tr *ngFor= "let i of otherResults | slice: (otherpage-1) * otherpageSize : otherpage * otherpageSize">
+                    <td>
+                        <h3 class="otherTitle">Title: {{i.title}}</h3>
+                        <h4 class="otherAuthor">Author: {{i.author}}</h4>
+                        <h4 class="otherAuthor">Published Date: {{i.content_date}}</h4>
+                        <h5 class="otherSummaryHead">Summary: </h5>
+                        <p class="otherSummarybody">{{i.summary}}</p>
+                        <h5 class="otherUrl">URL: {{i.url}}</h5>
+                        <button (click)="open(content, i)" type="button" class="btn btn-block btn-success btn-more">View More</button>
+                        <hr style="background-color: cadetblue;">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="card-footer" class="pagn">
+                <ngb-pagination class="pagn" [(page)]="otherpage" [pageSize]="otherpageSize" [collectionSize]="otherCount"></ngb-pagination>
+              </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title mdTitle" id="modal-basic-title">View Text</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+<h6>{{text}}</h6>
+    </div>
+</ng-template>

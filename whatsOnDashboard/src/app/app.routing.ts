@@ -10,6 +10,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { WhatsonDashboardComponent } from './layout/whatson-dashboard/whatson-dashboard.component'
 import { DashboardWhatsOnComponent } from './layout/whats-on/dashboard-whats-on/dashboard-whats-on.component'
+import {ResultsComponent} from './layout/whats-on/results/results.component'
 
 export const routes: Routes = [
   {
@@ -67,6 +68,10 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardWhatsOnComponent
+      },
+      {
+        path: 'result',
+        component: ResultsComponent
       },
       {
         path: 'icons',

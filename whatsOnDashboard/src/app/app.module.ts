@@ -46,6 +46,8 @@ import { WhatsonDashboardComponent } from './layout/whatson-dashboard/whatson-da
 import { DashboardWhatsOnComponent } from './layout/whats-on/dashboard-whats-on/dashboard-whats-on.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {ResultsComponent} from './layout/whats-on/results/results.component'
+import { NgbAlertModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -65,7 +67,8 @@ import { HttpClientModule } from '@angular/common/http';
     IconModule,
     IconSetModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   declarations: [
@@ -76,7 +79,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     WhatsonDashboardComponent,
-    DashboardWhatsOnComponent
+    DashboardWhatsOnComponent,
+    ResultsComponent
   ],
   providers: [
     {
